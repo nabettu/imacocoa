@@ -47,6 +47,7 @@ function sendMyPosition(){
   }
   userName = $("#name")[0].value;
   $("#sender").hide();
+  $("#done").show();
 
   //位置情報取得
   navigator.geolocation.watchPosition(

@@ -15,9 +15,9 @@ var map;
 window.onload = function(){
    map = new GMaps({
                 div: "#map",
-                lat: 35.56,
-                lng: 139.69,
-                zoom: 6,
+                lat: 35.5,
+                lng: 139.6,
+                zoom: 10,
             });
 
   map.addStyle({
@@ -28,9 +28,7 @@ window.onload = function(){
   map.setStyle("map_style");
 
   //すでに同じページを見ているユーザー一覧を読み込む
-//  var dataStore = milkcocoa('position').child('messages');
   var query = potisionDataStore.query({pageId : getQueryString().pageId });
-  //このように取得したオブジェクトを用いてデータの取得を行います。
   query.limit(30);
   query.done(function(data){
     console.log(data);

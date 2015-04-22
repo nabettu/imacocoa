@@ -30,6 +30,12 @@ h1{
   background: rgba(45,45,45, 0.5);
 }
 
+#sendBtn {
+  background-color:#222222;
+  padding:2px;
+  border-radius:5px;
+}
+
 /*map*/
 #map{
   position:absolute;

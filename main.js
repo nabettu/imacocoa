@@ -56,6 +56,7 @@ function sendMyPosition(){
 
       //GPSなぜか勝手にたくさん何度も送るので１回だけにさせる→更新したい場合はflgをtrueにする
       if(sendFlg){
+        sendFlg = false;
         var lat=position.coords.latitude;
         var lon=position.coords.longitude;
 
@@ -68,7 +69,6 @@ function sendMyPosition(){
           lon : lon
         },
           function(data){
-            sendFlg = false;
             console.log("milkcocoa送信完了!");
           }
         );

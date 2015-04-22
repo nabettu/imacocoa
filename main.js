@@ -20,13 +20,14 @@ function sendMyPosition(){
   userName = $("#name")[0].value;
   
   //位置情報取得
-  navigator.geolocation.watchPosition( function(position){
+  navigator.geolocation.watchPosition(
+    function(position){
       var lat=position.coords.latitude;
       var lon=position.coords.longitude;
 
       //データ送信
       potisionDataStore.push({
-        pageId : getQueryString().pageId ,
+        pageId : getQueryString().pageId,
         userName : userName,
         userId : userId,
         lat : lat,
@@ -34,8 +35,10 @@ function sendMyPosition(){
       },
         function(data){
           console.log("milkcocoa送信完了!");
-        });
-  });
+        }
+      );
+    }
+  );
 }
 
 //データ受信監視
@@ -44,7 +47,7 @@ potisionDataStore.on("push",function(data){
   //page_IDの照合
 
   var userDom = document.createElement("li");
-  userDom.innerHTML = data.value.userName;
+  userDom.innerHTML = data.value.userName+",lat:"data.value.lat+",lon:"data.value.lon;
   $("#userList").append(userDom);
 
   //地図の拡縮をユーザーが全員入る様に変更

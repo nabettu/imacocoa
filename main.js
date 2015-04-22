@@ -20,14 +20,22 @@ window.onload = function(){
                 zoom: 6,
             });
 
-            map.addStyle({
-                styledMapName:"Styled Map",
-                styles: styles,
-                mapTypeId: "map_style"
-            });
+  map.addStyle({
+      styledMapName:"Styled Map",
+      styles: styles,
+      mapTypeId: "map_style"
+  });
+  map.setStyle("map_style");
 
-            map.setStyle("map_style");
-            //すでに同じページを見ているユーザー一覧を読み込む
+  //すでに同じページを見ているユーザー一覧を読み込む
+//  var dataStore = milkcocoa('position').child('messages');
+  var query = potisionDataStore.query({pageId : getQueryString().pageId });
+  //このように取得したオブジェクトを用いてデータの取得を行います。
+  query.limit(30);
+  query.done(function(data){
+    console.log(data);
+    for(var i=0 ; i<data.length ; i++)dataAdd(data[i]);
+  });
 
 
   //地図の拡縮をユーザーが全員入る様に変更する
@@ -71,24 +79,27 @@ function sendMyPosition(){
 
 //データ受信監視
 potisionDataStore.on("push",function(data){
-  console.log(data.value);
+  dataAdd(data.value);
+});
 
+function dataAdd(data){
+  console.log(data);
   //page_IDの照合
-  if(getQueryString().pageId == data.value.pageId){
+  if(getQueryString().pageId == data.pageId){
     var userDom = document.createElement("li");
-    userDom.innerHTML = data.value.userName+"さんが参加しました。";
+    userDom.innerHTML = data.userName+"さんが参加しました。";
     $("#userList").append(userDom);
 
     map.addMarker({
-        lat: data.value.lat,
-        lng: data.value.lon,
+        lat: data.lat,
+        lng: data.lon,
         infoWindow: {
-            content: "<p class='tag'>"+data.value.userName+"</p>"
+            content: "<p class='tag'>"+data.userName+"</p>"
         }
     });
     //地図の拡縮をユーザーが全員入る様に変更
   }
-});
+}
 
 //URLの文字列を取得
 function getQueryString(){

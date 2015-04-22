@@ -7,18 +7,25 @@
   <meta name="viewport" content="width=device-width, maximum-scale=1.0,initial-scale=0.7, user-scalable=no">
   <!--[if lte IE 9]><script src="js/lib/html5shiv.js"></script><![endif]-->
   <script src="http://cdn.mlkcca.com/v0.2.8/milkcocoa.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="libs/mapStyle.js"></script>
+  <script src="libs/gmaps.js"></script>
   <script src="libs/jquery.min.js"></script>
   <script src="main.js"></script>
   <link href="main.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
-  <h1>imacocoa</h1>
-  <p>サイトを見ている人と場所を共有して表示出来ます</p>
-  <div id="sedner">
-    <input id="name" value="アナタの名前">
-    <div id="sendBtn" onclick="sendMyPosition();">自分の居場所を送る</div>
+  <div id="map"></div>
+  <div id="content">
+    <h1>imacocoa</h1>
+    <p>このサイトを見ている人と場所を共有して表示出来ます</p>
+    <div id="sender">
+      <p>はじめに友人にわかる様にあなたの名前を入力してください</p>
+      <input id="name" placeholder="アナタの名前を入れて下さい">
+      <div id="sendBtn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</div>
+    </div>
+    <ul id="userList"></ul>
+    <a href="./index.html">マップの新規作成</a>
   </div>
-  <ul id="userList"></ul>
-  <a href="./index.html">マップの新規作成</a>
 </body>
 </html>

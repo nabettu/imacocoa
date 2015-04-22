@@ -1,0 +1,26 @@
+/* サイト全体の */
+body {
+    text-align: center;
+    vertical-align: center;
+}
+
+.contents{
+    max-width:790px;
+    margin:50px auto 150px;
+}
+
+/* nav */
+.navbar{
+  background-color:#263147;
+  color:#ffffff;
+}
+
+.nav-container{
+  height:50px;
+}
+
+/*Modal*/
+.modal {
+  overflow-y: auto;
+  max-height: 90%;
+}

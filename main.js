@@ -31,12 +31,9 @@ window.onload = function(){
   var query = potisionDataStore.query({pageId : getQueryString().pageId });
   query.limit(30);
   query.done(function(data){
-    console.log(data);
+//    console.log(data);
     for(var i=0 ; i<data.length ; i++)dataAdd(data[i]);
   });
-
-
-  //地図の拡縮をユーザーが全員入る様に変更する
 }
 
 
@@ -68,7 +65,7 @@ function sendMyPosition(){
           lon : lon
         },
           function(data){
-            console.log("milkcocoa送信完了!");
+            //console.log("milkcocoa送信完了!");
           }
         );
       };
@@ -82,7 +79,6 @@ potisionDataStore.on("push",function(data){
 });
 
 function dataAdd(data){
-  console.log(data);
   //page_IDの照合
   if(getQueryString().pageId == data.pageId){
     var userDom = document.createElement("li");
@@ -96,7 +92,15 @@ function dataAdd(data){
             content: "<p class='tag'>"+data.userName+"</p>"
         }
     });
+
+    map.setCenter(
+        data.lat,
+        data.lon
+    );
+
     //地図の拡縮をユーザーが全員入る様に変更
+    //中間地点を割り出す
+    //３秒後とかにかな
   }
 }
 

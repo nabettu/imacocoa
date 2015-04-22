@@ -1,12 +1,6 @@
 var milkcocoa = new MilkCocoa("https://io-ci8scyn06.mlkcca.com");
 var potisionDataStore = milkcocoa.dataStore("position");
 
-potisionDataStore.query().done(function(data) {
-  data.forEach(function(value) {
-    potisionDataStore.remove(value.id);
-  });
-});
-
 //初回アクセスの場合はアクセスユーザー固有のpage_idを作成する
 if(!getQueryString().pageId){
   var pageId = Math.random().toString(36).slice(-10);

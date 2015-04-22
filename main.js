@@ -9,6 +9,7 @@ if(!getQueryString().pageId){
 
 var userId = Math.random().toString(36).slice(-5);
 var userName = "";
+var sendFlg = true;
 
 window.onload = function(){
   //同じページを見ているユーザー一覧を読み込む
@@ -22,21 +23,26 @@ function sendMyPosition(){
   //位置情報取得
   navigator.geolocation.watchPosition(
     function(position){
-      var lat=position.coords.latitude;
-      var lon=position.coords.longitude;
 
-      //データ送信
-      potisionDataStore.push({
-        pageId : getQueryString().pageId,
-        userName : userName,
-        userId : userId,
-        lat : lat,
-        lon : lon
-      },
-        function(data){
-          console.log("milkcocoa送信完了!");
-        }
-      );
+      if(sendFlg){
+        var lat=position.coords.latitude;
+        var lon=position.coords.longitude;
+
+        //データ送信
+        potisionDataStore.push({
+          pageId : getQueryString().pageId,
+          userName : userName,
+          userId : userId,
+          lat : lat,
+          lon : lon
+        },
+          function(data){
+            sendFlg = false;
+            console.log("milkcocoa送信完了!");
+            $("#sender").hide();
+          }
+        );
+      };
     }
   );
 }
@@ -47,7 +53,7 @@ potisionDataStore.on("push",function(data){
   //page_IDの照合
 
   var userDom = document.createElement("li");
-  userDom.innerHTML = data.value.userName+",lat:"data.value.lat+",lon:"data.value.lon;
+  userDom.innerHTML = data.value.userName+",lat:"+data.value.lat+",lon:"+data.value.lon;
   $("#userList").append(userDom);
 
   //地図の拡縮をユーザーが全員入る様に変更

@@ -17,17 +17,15 @@
 <body>
   <div id="map"></div>
   <div id="content">
-    <h1>imacocoa</h1>
+    <h1>imacocoa(仮名)</h1>
     <p>このサイトを見ている人と場所を共有して表示出来ます</p>
-    <div id="sender">
+    <form id="sender" onsubmit="sendMyPosition();return false;">
       <p>はじめに友人にわかる様にあなたの名前を入力してください</p>
-      <form onsubmit="sendMyPosition();return false;">
-        <input id="name" type="text" width="100" placeholder="ここ太郎">
-        <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
-      </form>
-    </div>
+      <input id="name" type="text" width="100" placeholder="ここ太郎">
+      <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
+    </form>
     <div id="done" style="display:none;">
-      <p>友人のこのページのURLを送ると居場所を共有できます</p>
+      <p>友人のこのページのURLを送るとこのマップ上で居場所を共有できます</p>
     </div>
     <ul id="userList"></ul>
     <a href="./index.html" class="btn">マップの新規作成</a>

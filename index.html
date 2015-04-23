@@ -21,14 +21,16 @@
     <p>このサイトを見ている人と場所を共有して表示出来ます</p>
     <div id="sender">
       <p>はじめに友人にわかる様にあなたの名前を入力してください</p>
-      <input id="name" type="text" width="100" placeholder="アナタの名前を入れて下さい">
-      <span id="sendBtn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</span>
+      <form onsubmit="sendMyPosition();return false;">
+        <input id="name" type="text" width="100" placeholder="ここ太郎">
+        <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
+      </form>
     </div>
     <div id="done" style="display:none;">
       <p>友人のこのページのURLを送ると居場所を共有できます</p>
     </div>
     <ul id="userList"></ul>
-    <a href="./index.html">マップの新規作成</a>
+    <a href="./index.html" class="btn">マップの新規作成</a>
   </div>
 </body>
 </html>

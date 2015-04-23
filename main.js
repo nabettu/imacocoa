@@ -12,6 +12,8 @@ var userName = "";
 var sendFlg = true;
 var map;
 var userList = [];
+var centerLat=35.5;
+var centerLon=139.6;
 
 window.onload = function(){
    map = new GMaps({
@@ -87,13 +89,18 @@ potisionDataStore.on("push",function(data){
   if(getQueryString().pageId == data.value.pageId){
     userList.push(data.value);
     dataUpdate();
+    
     map.setCenter(data.value.lat,data.value.lon);
   }
 });
 
+//userListに値を入れる＋domを追加
 function dataUpdate(){
   $("#userList")[0].innerHTML = "";
   map.removeMarker();
+
+  centerLat=0;
+  centerLon=0;
 
   for(var i=0; i<userList.length;i++){
     var userDom = document.createElement("li");
@@ -108,9 +115,22 @@ function dataUpdate(){
         }
     });
 
-    //地図の拡縮をユーザーが全員入る様に変更
     //中間地点を割り出す
-    //３秒後とかにかな
+    centerLat = centerLat + userList[i].lat;
+    centerLon = centerLon + userList[i].lon;
+  }
+
+//中心マーカー
+  if(userList.length>1){
+    centerLat = centerLat / userList.length;
+    centerLon = centerLon / userList.length;
+    map.addMarker({
+        lat: centerLat,
+        lng: centerLon,
+        infoWindow: {
+            content: "<p class='tag'>中心</p>"
+        }
+    });
   }
 }
 

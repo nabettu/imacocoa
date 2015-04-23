@@ -11,6 +11,7 @@ var userId = Math.random().toString(36).slice(-5);
 var userName = "";
 var sendFlg = true;
 var map;
+var userList = [];
 
 window.onload = function(){
    map = new GMaps({
@@ -32,7 +33,12 @@ window.onload = function(){
   query.limit(30);
   query.done(function(data){
 //    console.log(data);
-    for(var i=0 ; i<data.length ; i++)dataAdd(data[i]);
+    for(var i=0; i<data.length; i++){
+      if(getQueryString().pageId == data[i].pageId){
+        userList.push(data[i]);
+      }
+    }
+    dataUpdate();
   });
 }
 
@@ -56,13 +62,16 @@ function sendMyPosition(){
         var lat=position.coords.latitude;
         var lon=position.coords.longitude;
 
+        var time = new Date().getTime();
+
         //データ送信
         potisionDataStore.push({
           pageId : getQueryString().pageId,
           userName : userName,
           userId : userId,
           lat : lat,
-          lon : lon
+          lon : lon,
+          time : time
         },
           function(data){
             //console.log("milkcocoa送信完了!");
@@ -75,28 +84,29 @@ function sendMyPosition(){
 
 //データ受信監視
 potisionDataStore.on("push",function(data){
-  dataAdd(data.value);
+  if(getQueryString().pageId == data.value.pageId){
+    userList.push(data.value);
+    dataUpdate();
+    map.setCenter(data.value.lat,data.value.lon);
+  }
 });
 
-function dataAdd(data){
-  //page_IDの照合
-  if(getQueryString().pageId == data.pageId){
+function dataUpdate(){
+  $("#userList")[0].innerHTML = "";
+  map.removeMarker();
+
+  for(var i=0; i<userList.length;i++){
     var userDom = document.createElement("li");
-    userDom.innerHTML = data.userName+"さんが参加しました。";
+    userDom.innerHTML = userList[i].userName+"さんが参加しました。";
     $("#userList").append(userDom);
 
     map.addMarker({
-        lat: data.lat,
-        lng: data.lon,
+        lat: userList[i].lat,
+        lng: userList[i].lon,
         infoWindow: {
-            content: "<p class='tag'>"+data.userName+"</p>"
+            content: "<p class='tag'>"+userList[i].userName+"</p>"
         }
     });
-
-    map.setCenter(
-        data.lat,
-        data.lon
-    );
 
     //地図の拡縮をユーザーが全員入る様に変更
     //中間地点を割り出す

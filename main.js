@@ -131,6 +131,19 @@ function dataUpdate(){
             content: "<p class='tag'>中心</p>"
         }
     });
+
+  //中心地の最寄り駅を持ってくる
+    var centerStationUrl = "http://express.heartrails.com/api/json?method=getStations&x="+centerLon+"&y="+centerLat+"&callback=?";
+
+    $.getJSON(centerStationUrl,
+      {},
+      function(data){
+        //リクエストが成功した際に実行する関数
+        $("#centerStationName")[0].innerHTML = data.response.station[0].name;
+        $("#centerStation").show();
+      }
+    );
+
   }
 }
 

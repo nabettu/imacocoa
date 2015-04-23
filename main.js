@@ -89,7 +89,7 @@ potisionDataStore.on("push",function(data){
   if(getQueryString().pageId == data.value.pageId){
     userList.push(data.value);
     dataUpdate();
-    
+
     map.setCenter(data.value.lat,data.value.lon);
   }
 });
@@ -127,6 +127,7 @@ function dataUpdate(){
     map.addMarker({
         lat: centerLat,
         lng: centerLon,
+        icon: "img/hachi.png",
         infoWindow: {
             content: "<p class='tag'>中心</p>"
         }

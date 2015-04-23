@@ -32,9 +32,10 @@
   <div id="map"></div>
   <div id="content">
     <h1 onclick="openClose();">どこでもハチ公β</h1>
+    <span id="named">named by <a href="https://twitter.com/gonshi_com" target="_blank">gonshi</a></span>
     <div id="onMapArea">
-      <p>このサイトを見ている人と場所を共有出来ます</p>
       <form id="sender" onsubmit="sendMyPosition();return false;">
+        <p>このサイトを見ている人と場所を共有出来ます</p>
         <p>友人に伝えるあなたの名前を入力してください</p>
         <input id="name" type="text" width="100" placeholder="ここ太郎"><br>
         <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>

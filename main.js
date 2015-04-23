@@ -128,9 +128,6 @@ function dataUpdate(){
         lat: centerLat,
         lng: centerLon,
         icon: "img/hachi.png",
-        infoWindow: {
-            content: "<p class='tag'>中心</p>"
-        }
     });
 
   //中心地の最寄り駅を持ってくる
@@ -140,11 +137,24 @@ function dataUpdate(){
       {},
       function(data){
         //リクエストが成功した際に実行する関数
-        $("#centerStationName")[0].innerHTML = data.response.station[0].name;
-        $("#centerStation").show();
+        if(data.response.station.length>0){
+          $("#centerStationName")[0].innerHTML = data.response.station[0].name;
+          $("#centerStation").show();
+        }
       }
     );
 
+  }
+}
+
+//地図表示非表示
+function openClose(){
+  if($("#onMapArea")[0].style.display == "none"){
+    $("#onMapArea").show(300);
+    $("#dispBtn")[0].innerHTML = "地図表示↑";
+  } else {
+    $("#onMapArea").hide(300);
+    $("#dispBtn")[0].innerHTML = "メンバー表示↓";
   }
 }
 

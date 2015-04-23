@@ -37,7 +37,7 @@ input {
 #content{
   float:top;
   background: rgba(45,45,45, 0.5);
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 .btn {
@@ -49,6 +49,10 @@ input {
   padding:3px;
   border: solid 1px #ffffff;
   border-radius:5px;
+}
+
+#dispBtn{
+  float:right;
 }
 
 /*map*/

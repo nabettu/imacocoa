@@ -27,26 +27,28 @@
   <meta name="twitter:description" content="URLをシェアするだけで集合場所を簡単に決められるサービス">
   <meta name="keywords" content="調整さん">
   <meta name="description" content="URLをシェアするだけで集合場所を簡単に決められるサービス">
-
 </head>
 <body>
   <div id="map"></div>
   <div id="content">
-    <h1>docococo(仮名)</h1>
-    <p>このサイトを見ている人と場所を共有出来ます</p>
-    <form id="sender" onsubmit="sendMyPosition();return false;">
-      <p>友人に伝えるあなたの名前を入力してください</p>
-      <input id="name" type="text" width="100" placeholder="ここ太郎"><br>
-      <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
-    </form>
-    <div id="done" style="display:none;">
-      <p>友人のこのページのURLを送るとこのマップ上で居場所を共有できます</p>
+    <h1 onclick="openClose();">docococo(仮名)</h1>
+    <div id="onMapArea">
+      <p>このサイトを見ている人と場所を共有出来ます</p>
+      <form id="sender" onsubmit="sendMyPosition();return false;">
+        <p>友人に伝えるあなたの名前を入力してください</p>
+        <input id="name" type="text" width="100" placeholder="ここ太郎"><br>
+        <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
+      </form>
+      <div id="done" style="display:none;">
+        <p>友人のこのページのURLを送るとこのマップ上で居場所を共有できます</p>
+      </div>
+      <ul id="userList"></ul>
+      <div id="centerStation" style="display:none;">
+        みんなの中心の最寄り駅は<span id="centerStationName">渋谷</span>駅です。
+      </div>
+      <a href="./index.html" class="btn">マップの新規作成</a>
     </div>
-    <ul id="userList"></ul>
-    <div id="centerStation" style="display:none;">
-      みんなの中心の最寄り駅は<span id="centerStationName">渋谷</span>駅です。
-    </div>
-    <a href="./index.html" class="btn">マップの新規作成</a>
+    <div id="dispBtn" onclick="openClose();">地図表示↑</div>
   </div>
 </body>
 </html>

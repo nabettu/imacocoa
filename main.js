@@ -103,8 +103,9 @@ function dataUpdate(){
   centerLon=0;
 
   for(var i=0; i<userList.length;i++){
-    var userDom = document.createElement("li");
-    userDom.innerHTML = userList[i].userName+"さんが参加しました。";
+    var userDom = document.createElement("span");
+    userDom.innerHTML = userList[i].userName+"さん ";
+    userDom.className = "userName";
     $("#userList").append(userDom);
 
     map.addMarker({
@@ -145,6 +146,9 @@ function dataUpdate(){
     );
 
   }
+
+  $("#userList").append("が参加しました。");
+  $("#userList").show();
 }
 
 //地図表示非表示

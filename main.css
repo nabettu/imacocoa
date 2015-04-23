@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+p{
+  margin:3px;
+}
+
 /*Modal*/
 .modal {
   overflow-y: auto;
@@ -38,18 +42,28 @@ input {
 #content{
   float:top;
   background: rgba(45,45,45, 0.5);
-  padding-bottom: 30px;
+  padding-bottom: 35px;
 }
 
 .btn {
   display:block;
-  max-width:300px;
-  margin:10px auto 0;
+  max-width:270px;
+  margin:5px auto;
 
   background-color:#666666;
-  padding:3px;
+  padding:2px;
   border: solid 1px #ffffff;
   border-radius:5px;
+}
+
+.userName,#centerStationName{
+  color:#aaddff;
+}
+
+#newMapBtn{
+  max-width:180px;
+  float:left;
+  margin:0;
 }
 
 #dispBtn{

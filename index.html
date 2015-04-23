@@ -35,19 +35,19 @@
     <span id="named">named by <a href="https://twitter.com/gonshi_com" target="_blank">gonshi</a></span>
     <div id="onMapArea">
       <form id="sender" onsubmit="sendMyPosition();return false;">
-        <p>このサイトを見ている人と場所を共有出来ます</p>
-        <p>友人に伝えるあなたの名前を入力してください</p>
+        <p>URLを送って簡単に集合場所を決められます</p>
+        <p>友達に伝えるあなたの名前を入力してください</p>
         <input id="name" type="text" width="100" placeholder="ここ太郎"><br>
         <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
       </form>
       <div id="done" style="display:none;">
-        <p>友人のこのページのURLを送るとこのマップ上で居場所を共有できます</p>
+        <p>友人にこのURLを送るとマップ上で居場所を共有でき、中心にハチ公が立ちます</p>
       </div>
-      <ul id="userList"></ul>
+      <span id="userList"></span>
       <div id="centerStation" style="display:none;">
         みんなの中心の最寄り駅は<span id="centerStationName">渋谷</span>駅です。
       </div>
-      <a href="./index.html" class="btn">マップの新規作成</a>
+      <a href="./index.html" id="newMapBtn" class="btn">別URL作成</a>
     </div>
     <div id="dispBtn" onclick="openClose();">地図表示↑</div>
   </div>

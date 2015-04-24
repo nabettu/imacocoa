@@ -59,7 +59,7 @@ h2{
 }
 
 input {
-  min-height:23px;
+  min-height:30px;
   border: 1px solid #ccc;
   border-radius: 3px;
   outline: none;
@@ -69,18 +69,22 @@ input {
 #content{
   float:top;
   background: rgba(45,45,45, 0.7);
-  padding-bottom: 35px;
+  padding-bottom: 40px;
 }
 
 .btn {
-  display:block;
+  display:inline-block;
   max-width:270px;
   margin:5px auto;
 
   background-color:#666666;
-  padding:2px;
+  padding:5px 2px;
   border: solid 1px #ffffff;
   border-radius:5px;
+}
+
+#named{
+  font-size:70%;
 }
 
 .userName,#centerStationName{
@@ -95,6 +99,7 @@ input {
 
 #dispBtn{
   float:right;
+  margin:0;
 }
 
 #notifer{

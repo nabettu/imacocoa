@@ -38,7 +38,7 @@
       <form id="sender" onsubmit="sendMyPosition();return false;">
         <p>URLを送って簡単に集合場所を決められます</p>
         <p>友達に伝えるあなたの名前を入力してください</p>
-        <input id="name" type="text" width="100" placeholder="ここ太郎"><br>
+        <input id="name" type="text" width="100" placeholder="ここ太郎">
         <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
       </form>
       <div id="done" style="display:none;">
@@ -53,7 +53,7 @@
       </div>
     </div>
     <a href="./index.html" id="newMapBtn" class="btn">新しくURLを作成</a>
-    <div id="dispBtn" onclick="openClose();">地図表示↑</div>
+    <a id="dispBtn" class="btn" onclick="openClose();">地図表示↑</a>
   </div>
   <div id="aboutBtn" onclick="modalOnOff();">?</div>
   <div id="aboutModal" style="display:none">

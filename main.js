@@ -159,6 +159,21 @@ function openClose(){
   } else {
     $("#onMapArea").hide(300);
     $("#dispBtn")[0].innerHTML = "メンバー表示↓";
+    $("#aboutModal").hide(300);
+  }
+}
+
+//説明表示非表示
+function modalOnOff(){
+  console.log($("#aboutModal")[0].style.display);
+  if($("#aboutModal")[0].style.display == "none"){
+    $("#aboutModal").show(300);
+    $("#aboutBtn")[0].innerHTML = "×";
+    $("#onMapArea").hide(300);
+  } else {
+    $("#aboutModal").hide(300);
+    $("#aboutBtn")[0].innerHTML = "?";
+    $("#onMapArea").show(300);
   }
 }
 

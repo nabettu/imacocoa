@@ -33,7 +33,7 @@ p{
   bottom: 20px;
   border-radius: 50%;
   border: solid 1px #ffffff;
-  background: rgba(45,45,45, 0.5);
+  background: rgba(45,45,45, 0.7);
 }
 
 #aboutModal{
@@ -42,7 +42,7 @@ p{
   z-index:5;
   border-radius: 10px;
   border: solid 1px #ffffff;
-  background: rgba(45,45,45, 0.5);
+  background: rgba(45,45,45, 0.7);
 }
 
 h1{
@@ -68,7 +68,7 @@ input {
 
 #content{
   float:top;
-  background: rgba(45,45,45, 0.5);
+  background: rgba(45,45,45, 0.7);
   padding-bottom: 35px;
 }
 

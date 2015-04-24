@@ -156,23 +156,40 @@ function openClose(){
   if($("#onMapArea")[0].style.display == "none"){
     $("#onMapArea").show(300);
     $("#dispBtn")[0].innerHTML = "地図表示↑";
+    $("#aboutModal").hide(300);
   } else {
     $("#onMapArea").hide(300);
     $("#dispBtn")[0].innerHTML = "メンバー表示↓";
-    $("#aboutModal").hide(300);
   }
 }
 
 //説明表示非表示
 function modalOnOff(){
-  console.log($("#aboutModal")[0].style.display);
   if($("#aboutModal")[0].style.display == "none"){
     $("#aboutModal").show(300);
     $("#onMapArea").hide(300);
+    $("#dispBtn")[0].innerHTML = "メンバー表示↓";
   } else {
     $("#aboutModal").hide(300);
     $("#onMapArea").show(300);
+    $("#dispBtn")[0].innerHTML = "地図表示↑";
   }
+}
+
+//shareボタン
+function shareBtn(sns){
+  switch(sns){
+    case "tw":
+      var url = "https://twitter.com/intent/tweet?url="+window.location.href+"&text=諦めんなよ！まだ今日は終わってない！飲みに行くぞ！/アクセスするだけ集合場所決め！＃どこハチ";
+    break;
+    case "fb":
+      var url = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&t=今日急に飲み行ける人行きましょう！/アクセスするだけ集合場所決め！どこハチ";
+    break;
+    case "line":
+      var url = "http://line.me/R/msg/text/?今日急に飲み行ける人行きましょう！/アクセスするだけ集合場所決め！どこハチ "+window.location.href;
+    break;
+  }  
+  window.open(url,"new");
 }
 
 //URLの文字列を取得

@@ -41,7 +41,10 @@
         <a id="sendBtn" href="#" class="btn" onclick="sendMyPosition();">この名前で自分の居場所を登録する</a>
       </form>
       <div id="done" style="display:none;">
-        <p>友人にこのURLを送るとマップ上で居場所を共有でき、中心にハチ公が立ちます</p>
+        <p>友人にこのサイトのURLを送るとマップ上で居場所を共有でき、中心にハチ公が立ちます</p>
+        <div class="share-btn line-btn" onclick="shareBtn('line');">LINEで集合！</div>
+        <div class="share-btn fb-btn" onclick="shareBtn('fb');">Facebookで集合</div>
+        <div class="share-btn tw-btn" onclick="shareBtn('tw');">Twitterで修造！</div>
       </div>
       <span id="userList"></span>
       <div id="centerStation" style="display:none;">
@@ -57,7 +60,13 @@
     <p>あーだこーだ</p>
     <p>あーだこーだ</p>
     <p>あーだこーだ</p>
-    <p>あーだこーだ</p>
+    <p>シェアとか</p>
+      
+    <div class="share-btn line-btn" onclick="shareBtn('line');">LINEで集合！</div>
+    <div class="share-btn fb-btn" onclick="shareBtn('fb');">Facebookで集合</div>
+    <div class="share-btn tw-btn" onclick="shareBtn('tw');">Twitterで修造！</div>
+
+    <a href="./index.html" class="btn">新しくURLを作成する</a>
     <div class="btn" onclick="modalOnOff();">閉じる</div>
   </div>
 

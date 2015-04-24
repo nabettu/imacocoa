@@ -38,17 +38,20 @@ p{
 
 #aboutModal{
   margin: 10px auto;
-  max-width:90%;
+  max-width:96%;
   z-index:5;
   border-radius: 10px;
   border: solid 1px #ffffff;
   background: rgba(45,45,45, 0.5);
-  display: none;
 }
 
 h1{
   margin:0;
   display:inline;
+}
+
+h2{
+  margin:0;
 }
 
 .tag {
@@ -102,4 +105,27 @@ input {
   height:100%;
   margin:0;
   z-index:-1;
+}
+
+
+/* share button*/
+.share-btn {
+  display: inline-block;
+  width:30%;
+  padding:2px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tw-btn{
+    background-color: #00aced;
+}
+
+.fb-btn{
+    background-color: #305097;
+}
+
+.line-btn{
+    background-color: #00c300;
 }

@@ -168,11 +168,9 @@ function modalOnOff(){
   console.log($("#aboutModal")[0].style.display);
   if($("#aboutModal")[0].style.display == "none"){
     $("#aboutModal").show(300);
-    $("#aboutBtn")[0].innerHTML = "×";
     $("#onMapArea").hide(300);
   } else {
     $("#aboutModal").hide(300);
-    $("#aboutBtn")[0].innerHTML = "?";
     $("#onMapArea").show(300);
   }
 }

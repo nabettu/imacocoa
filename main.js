@@ -16,6 +16,8 @@ var centerLat=35.5;
 var centerLon=139.6;
 
 window.onload = function(){
+  if (/fban\/fbios;fbav\//.test(window.navigator.userAgent))$("#notifer").show();
+  
    map = new GMaps({
                 div: "#map",
                 lat: 35.5,

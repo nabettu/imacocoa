@@ -97,6 +97,11 @@ input {
   float:right;
 }
 
+#notifer{
+  color: #552222;
+  background-color: #ffdddd;
+}
+
 /*map*/
 #map{
   position:absolute;

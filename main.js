@@ -40,7 +40,7 @@ window.onload = function(){
         userList.push(data[i]);
       }
     }
-    dataUpdate();
+    if(data.length>0)dataUpdate();
   });
 }
 
@@ -88,9 +88,8 @@ function sendMyPosition(){
 potisionDataStore.on("push",function(data){
   if(getQueryString().pageId == data.value.pageId){
     userList.push(data.value);
-    dataUpdate();
-
     map.setCenter(data.value.lat,data.value.lon);
+    dataUpdate();
   }
 });
 
@@ -130,6 +129,7 @@ function dataUpdate(){
         lng: centerLon,
         icon: "img/hachi.png",
     });
+    setTimeout("map.setCenter("+centerLat+","+centerLon+");",3000); 
 
   //中心地の最寄り駅を持ってくる
     var centerStationUrl = "http://express.heartrails.com/api/json?method=getStations&x="+centerLon+"&y="+centerLat+"&callback=?";

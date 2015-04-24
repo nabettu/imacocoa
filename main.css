@@ -69,7 +69,7 @@ input {
 #content{
   float:top;
   background: rgba(45,45,45, 0.7);
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .btn {
@@ -94,12 +94,12 @@ input {
 #newMapBtn{
   max-width:180px;
   float:left;
-  margin:0;
+  margin:10px 0;
 }
 
 #dispBtn{
   float:right;
-  margin:0;
+  margin:10px 0;
 }
 
 #notifer{

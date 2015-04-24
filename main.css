@@ -92,14 +92,15 @@ input {
 }
 
 #newMapBtn{
-  max-width:180px;
   float:left;
-  margin:10px 0;
 }
 
 #dispBtn{
   float:right;
-  margin:10px 0;
+}
+
+.floatBtn{
+  margin:10px 5px;  
 }
 
 #notifer{

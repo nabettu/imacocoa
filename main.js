@@ -16,7 +16,7 @@ var centerLat=35.5;
 var centerLon=139.6;
 
 window.onload = function(){
-  if (/twitter/.test(window.navigator.userAgent))$("#notifer").show();
+  if((!/safari/.test(window.navigator.userAgent))&&(/iphone|ipod|ipad/.test(window.navigator.userAgent)))$("#notifer").show();
   
    map = new GMaps({
                 div: "#map",

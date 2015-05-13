@@ -146,10 +146,9 @@ function dataUpdate(){
       }
     );
 
-  }
-
   $("#userList").append("が参加しました。");
   $("#userList").show();
+  }
 }
 
 //地図表示非表示

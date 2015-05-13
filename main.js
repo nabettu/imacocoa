@@ -1,4 +1,4 @@
-var milkcocoa = new MilkCocoa("https://io-ci8scyn06.mlkcca.com");
+var milkcocoa = new MilkCocoa("icei9mhbmgn.mlkcca.com");
 var potisionDataStore = milkcocoa.dataStore("position");
 
 //初回アクセスの場合はアクセスユーザー固有のpage_idを作成する
@@ -33,13 +33,12 @@ window.onload = function(){
   map.setStyle("map_style");
 
   //すでに同じページを見ているユーザー一覧を読み込む
-  var query = potisionDataStore.query({pageId : getQueryString().pageId });
-  query.limit(30);
-  query.done(function(data){
+  var query = potisionDataStore.stream().size(30);
+  query.next(function(err,data){
 //    console.log(data);
     for(var i=0; i<data.length; i++){
-      if(getQueryString().pageId == data[i].pageId){
-        userList.push(data[i]);
+      if(getQueryString().pageId == data[i].value.pageId){
+        userList.push(data[i].value);
       }
     }
     if(data.length>0)dataUpdate();
